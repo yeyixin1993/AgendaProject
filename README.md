@@ -21,7 +21,7 @@ In terminal:
  Run the localhost website:
 	In terminal, first navigate to the folder, then run the server.py: 
       
-      cd */AgendaProject
+ 	cd */AgendaProject
 		
 	python server.py
 
