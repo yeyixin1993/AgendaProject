@@ -3,7 +3,7 @@ Conference Management System
 
 Required Install Packages
 In terminal:
-	Sudo easy_install pip(mac)
+	Sudo easy_install pip (mac)
 
 	pip install flask
 	pip install numpy
