@@ -19,12 +19,14 @@ In terminal:
 	pip install openpyxl
 
  Run the localhost website:
-	In terminal, first navigate to the folder: 
+	In terminal, first navigate to the folder, then run the server.py: 
+      
       cd */AgendaProject
-	Then run the server.py
-		python server.py
+		
+	python server.py
 
 Then you will be able to open the welcome page on any browsers by typing: 
+
       localhost:5000/
       
       	or
