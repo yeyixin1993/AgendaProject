@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Event Creation</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{url_for('static', filename='images/icons/favicon.ico')}}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendor/animate/animate.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='vendor/select2/select2.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="bg-contact3" style="background-image: url('{{url_for('static', filename='images/bg-01.jpg')}}');">
+		<div class="container-contact3">
+			<div class="wrap-contact3">
+				<form class="contact3-form validate-form" action="/create_events" method="post">
+					<span class="contact3-form-title">
+						Event Creation
+					</span>
+
+					<div class="wrap-contact3-form-radio">
+
+						<div class="contact3-form-radio">
+							<input class="input-radio3" id="radio2" type="radio" name="choice" value="get-quote" checked="checked">
+							<label class="label-radio3" for="radio2">
+								Generate .ics Calendar File
+							</label>
+						</div>
+					</div>
+
+					<div class="wrap-input3 validate-input" data-validate="Name is required">
+						<input class="input3" type="text" name="name" placeholder="Event Name">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="wrap-input3 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input3" type="text" name="organizer_email" placeholder="Organizer Email">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="wrap-input3 validate-input" data-validate="Location is required">
+						<input class="input3" type="text" name="location" placeholder="Location">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="wrap-input3 validate-input" data-validate="Start time is required">
+						<input style = "width:50%;background: transparent"  type="text" name="startY" placeholder="Start time:    YYYY (Year)">
+						<input style = "width:20%;background: transparent"  type="text" name="startM" placeholder="MM (1-12)">
+						<input style = "width:20%;background: transparent" type="text" name="startD" placeholder="DD (1-31)">
+						<input style = "width:50%;background: transparent" type="text" name="startH" placeholder="Hour HH (0-24)">
+						<input style = "width:40%;background: transparent" type="text" name="startMM" placeholder="Minute (0-60)">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="wrap-input3 validate-input" data-validate="End time is required">
+						<input style = "width:50%;background: transparent"  type="text" name="endY" placeholder="End time:    YYYY (Year)">
+						<input style = "width:20%;background: transparent"  type="text" name="endM" placeholder="MM (1-12)">
+						<input style = "width:20%;background: transparent" type="text" name="endD" placeholder="DD (1-31)">
+						<input style = "width:50%;background: transparent" type="text" name="endH" placeholder="Hour HH (0-24)">
+						<input style = "width:40%;background: transparent" type="text" name="endMM" placeholder="Minute (0-60)">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="wrap-input3 validate-input">
+						<div>
+							<select class="selection-2" name="Time_Zone">
+								<option value="Asia/Singapore">UTC + 8, Singapore, Hong Kong</option>
+								<option value="Asia/Tokyo">UTC + 9, Tokyo</option>
+								<option value="Australia/Sydney">UTC + 11, Sydney</option>
+								<option value="Pacific/Honolulu">UTC - 10, Honolulu</option>
+								<option value="US/Alaska">UTC - 9, Alaska</option>
+								<option value="US/Pacific">UTC - 8, Pacific Time</option>
+								<option value="US/Mountain">UTC - 7, Mountain Time</option>
+								<option value="US/Central">UTC - 6, Central Time</option>
+								<option value="US/Eastern">UTC - 5, Eastern Time</option>
+								<option value="Europe/London">UTC + 0, London</option>
+								<option value="Europe/Paris">UTC + 1, Paris</option>
+							</select>
+						</div>
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="wrap-input3 validate-input" data-validate = "Event description is required">
+						<textarea class="input3" name="description" placeholder="Event description"></textarea>
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="wrap-input3 validate-input" data-validate="Name is required">
+						<input class="input3" type="text" name="file_name" placeholder="File Name (*.ics)">
+						<span class="focus-input3"></span>
+					</div>
+
+					<div class="container-contact3-form-btn">
+						<button class="contact3-form-btn" type="submit">
+							Submit
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+-->
+
+</body>
+</html>
