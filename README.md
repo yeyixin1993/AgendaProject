@@ -24,7 +24,7 @@ In terminal:
 	Then run the server.py
 		python server.py
 
-Then youÕll be able to open the welcome page on any browsers by typing: 
+Then you will be able to open the welcome page on any browsers by typing: 
       localhost:5000/
       
       	or
